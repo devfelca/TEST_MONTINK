@@ -53,7 +53,7 @@ class PedidoModel {
             return ['error' => 'CEP inválido'];
         }
 
-        $url = "https://viacep.com.br/ws/{$cep}/json/";
+        $url = "https://viacep.com.br/ws/{$cep}/json/"; #Pensei em colocar esse verificação direto no front-end, mas teria que ter uma segunda verificação no backend, antes de fazer a requisição, para evitar que o usuário faça uma requisição com um cep inválido, e isso não é uma boa prática.de mandar para o bd
         $resposta = file_get_contents($url);
 
         if ($resposta === false) {
